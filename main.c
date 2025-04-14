@@ -15,10 +15,10 @@ int main(int argc, char** argv) {
     unsigned char* image = stbi_load(argv[1], &w, &h, &c, 4);
     FILE* file = fopen(argv[2], "w+");
     
-    fprintf(file, "unsigned char image[%i * %i * %i] = {\n", w, h, c);
+    fprintf(file, "unsigned char image[%i * %i * %i] = {\n	", w, h, c);
     
     for (size_t i = 0; i < w * h * c; i++)
-        fprintf(file, "	%i,", image[i]);
+        fprintf(file, "%i,", image[i]);
 
     fprintf(file, "\n};\n");
     
